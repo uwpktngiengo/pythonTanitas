@@ -1,0 +1,12 @@
+Jaenner; 70.7; 87.5
+Februar; 77.4; 93.8
+Maerz; 68.2; 80.8
+April; 69.8; 75.6
+Mai; 67.0; 68.4
+Juni; 68.8; 69.6
+Juli; 108.5; 113.7
+August; 69.2; 73.3
+September; 100.3; 107.7
+Oktober; 75.6; 80.3
+November; 69.0; 72.6
+Dezember; 79.1; 84.0
