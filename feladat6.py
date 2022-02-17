@@ -22,6 +22,12 @@ def olvasas(filename):
     line = line.rstrip() # remove newline characters
     line = line.strip() # remove leading and ending spaces
     line = line.replace(",", "") # remove all ',' characters
+    
+    # ASCII UTF-8 UTF-16 UTF-32 UNICODE
+    
+    line = line.replace('\r', "")
+    line = line.replace('\n', "")
+
     array = line.split(";")
     dictionary.setdefault(array[0], []).append(array[1]) # key -> value, country -> capital
 
@@ -35,14 +41,23 @@ def mutasd_orszag(orszag, fovarosa): # itt nem biztos, hogy jól értettem a hib
   print(orszag + ' fővárosa ' + fovarosa)
 
 def uj_orszag(szotar):
-  # A feladat azt írja, hogy nem változtathatom meg az eredeti adatokat. Akkor mi értelme ennek? Úgyhogy úgy értelmeztem, hogy az inputfájlt hagyjam békén, de a változóban lévő adatokat igenis módosíthatom. Ezen értelmezés szerint csináltam ezt itt meg.
-
+  
   print('Enter new country:')
   newCountry = input()
 
+  for kulcs, ertek in szotar.items():
+    if (kulcs == newCountry):
+      print("mar felhasznalt orszag, nem modositjuk az adatszerkezetet")
+      return szotar
+  
   print('Enter new capital:')
   newCapital = input()
 
+  for kulcs, ertek in szotar.items():
+    if (ertek == newCapital):
+      print("mar felhasznalt fovaros, nem modositjuk az adatszerkezetet")
+      return szotar  
+  
   szotar.setdefault(newCountry, []).append(newCapital)
 
   return szotar
@@ -71,7 +86,7 @@ print("---")
 for key, value in dict.items():
   mutasd_orszag(key, value[0])
 
-uj_orszag(dict)
+dict = uj_orszag(dict)
 
 print("---")
 
