@@ -1,3 +1,5 @@
+import math
+
 #####################
 # osztalyok         #
 #####################
@@ -22,7 +24,7 @@ class Vektor:
     euklidesziNorma = 0
     for x in self.Lista:
       euklidesziNorma += (x * x)
-    return euklidesziNorma
+    return math.sqrt(euklidesziNorma)
 
 ########################
 # fo resz              #
